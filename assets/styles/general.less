@@ -1,0 +1,691 @@
+@font_family_1: 'Raleway', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Mukta&display=swap');
+
+/* Rounded sliders */
+body {
+	font-family: @font_family_1;
+	background-color: #fff;
+	color: #000;
+	margin: 0;
+	padding: 0;
+	min-width: 316px;
+	max-width: 350px;
+	>div {
+		padding: 20px 20px 10px;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		font-family: 'Mukta', sans-serif;
+	}
+
+	&.options{
+		max-width: 100%;
+	}
+
+	&.dark{
+		background: #313131;
+		color: #aba8a8;
+	}
+}
+
+.hidden{
+	display: none !important;
+}
+
+.infoText{
+	font-size: 11px;
+}
+
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 20px;
+	input {
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+}
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #2196F3;
+	-webkit-transition: .4s;
+	transition: .4s;
+	&:before {
+		position: absolute;
+		content: "";
+		height: 13px;
+		width: 13px;
+		left: 3.5px;
+		bottom: 4px;
+		background-color: white;
+		-webkit-transition: .4s;
+		transition: .4s;
+	}
+}
+input {
+	&:checked {
+		&+.slider {
+			background-color: #42f170;
+			&:before {
+				-webkit-transform: translateX(20px);
+				-ms-transform: translateX(20px);
+				transform: translateX(20px);
+			}
+		}
+	}
+	&:focus {
+		&+.slider {
+			box-shadow: 0 0 1px #2196F3;
+		}
+	}
+}
+.slider.round {
+	border-radius: 34px;
+	&:before {
+		border-radius: 50%;
+	}
+}
+
+
+.position{
+	&-header{
+		text-align: center;
+		margin: 15px 0px 0px;
+	}
+	&-select{
+		text-align: center;
+
+		.active{
+			font-size: 17px;
+			text-decoration: underline;
+		}
+	}
+	&-dev{
+		margin-right: 5px;
+		text-align: right;
+	}
+	&-test{
+		margin-left: 5px;
+		text-align: left;
+	}
+
+	&-dev,&-test{
+		display: inline-block;
+		max-width: 35%;
+		min-width: 35%;
+	}
+}
+
+
+.team{
+	&-name{
+		text-align: center;
+	}
+	&-name-input{
+		padding:5px;
+	}
+}
+
+#sprint-info{
+	> div{
+		text-align: center;
+		margin-top: 15px;
+		display: block;
+	}
+	
+	.sprint-info{
+		&-date {
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+			justify-content: center;
+			margin-top: 0px;
+		}
+		&-date-group {
+			display: block;
+		}
+		&-date-text{
+			margin-top: 0px;
+		}
+	}
+	input[type="radio"] {
+		position: absolute;
+		opacity: 0;
+		z-index: -1;
+		&+label {
+			
+			margin-right: 4px;
+			&::before {
+				border-radius: 1em;
+				line-height: 2;
+				top: 0px;
+				width: 2.4em;
+				height: 1.25rem;
+			}
+		}
+		&:checked {
+			&+label {
+				padding-left: 1em;
+				color: #fff;
+				&:before {
+					top: 0;
+					width: 100%;
+					height: 20px;
+					background: #8e44ad;
+				}
+			}
+		}
+	}
+	label {
+		position: relative;
+		padding-left: 1em;
+		padding-right: 1em;
+		line-height: 2;
+		cursor: pointer;
+		-webkit-transition: .25s all ease;
+		-o-transition: .25s all ease;
+		transition: .25s all ease;
+		&:before {
+			box-sizing: border-box;
+			content: " ";
+			position: absolute;
+			top: 0.3em;
+			left: 0;
+			display: block;
+			width: 1.4em;
+			height: 1.4em;
+			border: 2px solid white;
+			border-radius: .25em;
+			z-index: -1;
+		}
+		&::before {
+			-webkit-transition: .25s all ease;
+			-o-transition: .25s all ease;
+			transition: .25s all ease;
+		}
+	}
+}
+
+#send-info{
+	display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+	align-items: center;
+	
+	.send-info-save{
+		display: inline-flex;
+
+		&.saved{
+			button{
+				display: none;
+			}
+			.infosSaved{
+				display: block;
+				font-weight: bold;
+				font-size: 13px;
+				color: #01c301;
+			}
+		}
+	
+		.infosSaved{
+			display: none;
+		}
+		button {
+			position: relative;
+			margin: 0;
+			padding: 5px 12px;
+			outline: none;
+			text-decoration: none;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+			text-transform: uppercase;
+			background-color: #ffffff;
+			border: 1px solid rgba(22, 76, 167, 0.6);
+			border-radius: 10px;
+			color: #1d89ff;
+			font-weight: 400;
+			font-size: 20px;
+			z-index: 0;
+			overflow: hidden;
+			transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+			span {
+				color: #164ca7;
+				font-size: 12px;
+				font-weight: 500;
+				letter-spacing: 0.7px;
+			}
+			&:hover {
+				animation: rotate 0.7s ease-in-out both;
+				span {
+					animation: storm 0.7s ease-in-out both;
+					animation-delay: 0.06s;
+				}
+			}
+		}
+		.btn-slide-line.center {
+			&:after {
+				left: 50%;
+			}
+		}
+		.btn-slide-line {
+			&:after {
+				position: absolute;
+				right: 0;
+				left: auto;
+				transition: 0.3s;
+				content: "";
+				width: 0;
+				bottom: 0;
+				height: 3px;
+				background: #164ca7;
+			}
+			&:hover {
+				cursor: pointer;
+				&:after {
+					width: 100%;
+					left: 0;
+				}
+			}
+		}
+		.inspire {
+			a {
+				text-decoration: none;
+			}
+		}
+	}
+
+	.send-info-skip{
+		text-decoration: underline;
+		padding: 3px;
+		cursor: pointer;
+	}
+}
+
+.noTask{
+
+	.currentTaskText{
+		color: orange;
+		font-size: 14px;
+		margin-top: 10px;
+		font-weight: bold;
+	}
+
+	text-align: center;
+	.firstTask{
+		&-img{
+			width: 95%;
+			margin-top: 10px;
+		}
+	}
+	
+}
+
+.hasTask{
+	.previousTasks {
+		max-height: 190px;
+		overflow-y: auto;
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden;
+
+		.inactiveTask{
+			border-bottom: 1px solid #d0d0d0;
+			max-height: 17px;
+			margin-bottom: 4px;
+			text-align: left;
+			display: flex;
+			align-items: flex-start;
+			align-self: baseline;
+			max-width: 100%;
+			&:hover{
+				.removeOldTask{
+					display: inline-flex;
+				}
+			}
+
+			.inactiveTaskName{
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				overflow-y: hidden;
+				overflow-x: hidden;
+			}
+		}
+	}
+}
+
+.launchTask{
+	display: inline-flex;
+	vertical-align: top;
+	cursor: pointer;
+
+	img{
+		width: 18px;
+	}
+}
+
+.removeOldTask{
+	display: none;
+	margin-left: 10px;
+	vertical-align: top;
+	cursor: pointer;
+
+	img{
+		width: 18px;
+	}
+}
+
+.currentTaskMission{
+	display: block;
+	width: fit-content;
+    margin: 0 auto;
+	img{
+		width: 25px;
+		cursor: pointer;
+	}
+}
+.currentTaskText{
+	text-align: center;
+
+	.currentTaskName,.currentTaskTimeHr,.currentTaskTimeMin{
+		font-weight: bold;
+	}
+}
+
+.allTasksWrapper{
+	width: 90%;
+	margin: 10px auto 0px;
+}
+
+.noCurrentTaskText{
+	text-align: center;
+	width: 70%;
+    margin: 0 auto;
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+	left bottom,
+	left top,
+	color-stop(0.44, rgb(122,153,217)),
+	color-stop(0.72, rgb(73,125,189)),
+	color-stop(0.86, rgb(28,58,148)));
+}
+
+.footer{
+	padding: 15px 10px 0px;
+	display: flex;
+
+	.resetSprint, .exportSprint{
+		width: 50%;
+		text-align: center;
+		cursor: pointer;
+		line-height: 15px;
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+}
+
+
+@-webkit-keyframes fadeEffect {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes fadeEffect {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color:#f1f1f1;
+	button {
+		background-color: inherit;
+		float: left;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		transition: 0.3s;
+		font-size: 17px;
+		&:hover {
+			background-color: #ddd;
+		}
+	}
+	button.active {
+		background-color: #ccc;
+	}
+}
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	-webkit-animation: fadeEffect 1s;
+	animation: fadeEffect 1s;
+	width: 20%;
+    min-width: 300px;
+	
+	&.active{
+		display: block;
+	}
+}
+
+.darkModeSwitch{
+	display: flex;
+	justify-content: center;
+	padding: 5px 20px 15px;
+	.position{
+		&-day,&-night{
+			display: inline-block;
+			margin: 0px 10px;
+			img{
+				width: 40px;
+			}
+		}
+	}
+
+	&-toggle{
+		.switch{
+			margin-top: 10px;
+			width: 50px;
+			.slider{
+				background-color: #ffda70;
+			}
+		}
+
+		input {
+			&:checked {
+				&+.slider {
+					background-color: #5e6265;
+					&:before {
+						-webkit-transform: translateX(30px);
+						-ms-transform: translateX(30px);
+						transform: translateX(30px);
+					}
+				}
+			}
+		}
+	}
+}
+
+.options{
+	&-text{
+		text-align: center;
+		font-size: 15px;
+	}
+
+	&-export{
+		text-align: center;
+		cursor: pointer;
+		margin-bottom: 15px;
+	}
+
+	&-delete{
+		text-align: center;
+		cursor: pointer;
+	}
+
+}
+
+.resetConfirmation{
+	display: flex;
+    width: 80%;
+    justify-content: space-around;
+	margin: 0 auto;
+	
+	&-reset,&-cancel{
+		padding: 5px 10px;
+		border:1px solid black;
+		cursor: pointer;
+	}
+
+	&-reset{
+		background: #dc1212;
+    	color: white;
+	}
+}
+
+
+@-webkit-keyframes slideIn {
+	from {
+		bottom: -300px;
+		opacity: 0;
+	}
+	to {
+		bottom: 0;
+		opacity: 1;
+	}
+}
+@keyframes slideIn {
+	from {
+		bottom: -300px;
+		opacity: 0;
+	}
+	to {
+		bottom: 0;
+		opacity: 1;
+	}
+}
+@-webkit-keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.4);
+	-webkit-animation-name: fadeIn;
+	-webkit-animation-duration: 0.4s;
+	animation-name: fadeIn;
+	animation-duration: 0.4s;
+
+	&-header {
+		padding: 2px 16px;
+		background-color: #5cb85c;
+		color: white;
+	}
+
+	&-content {
+		position: fixed;
+		bottom: 0;
+		background-color: #fefefe;
+		width: calc(25% - 40px);
+		-webkit-animation-name: slideIn;
+		-webkit-animation-duration: 0.4s;
+		animation-name: slideIn;
+		animation-duration: 0.4s;
+	}
+
+	&-body {
+		padding: 20px 10px;
+	}
+	&-footer {
+		padding: 2px 16px;
+		background-color: #5cb85c;
+		color: white;
+	}
+	.close {
+		color: white;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+		&:hover {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		}
+		&:focus {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	}
+}
+
+#deleteModal{
+	.resetConfirmation{
+		&-reset,&-cancel{
+			padding: 10px 15px;
+			border:1px solid black;
+			cursor: pointer;
+		}
+	}
+
+	.tasksDeleted{
+		padding: 9.4px;
+		font-size: 14px;
+		color: #b30606;
+	}
+}

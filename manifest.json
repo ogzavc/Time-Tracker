@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name":"Task Tracker",
+    "version" : "1.0",
+    "description" : "A extention that counts time for your tasks",
+    "icons": {
+        "128": "/assets/icons/icon128.png",
+        "48": "/assets/icons/icon48.png",
+        "16": "/assets/icons/icon16.png"
+    },
+    "browser_action": {
+        "default_icon": "/assets/icons/icon16.png",
+        "default_popup": "popup.html"
+    },
+    "options_page": "options.html",
+    "background": {
+        "scripts": ["eventPage.js","assets/js/min/jquery-3.4.1.min.js"],
+
+        "persistent": false
+    },
+    "permissions": [
+        "storage",
+        "notifications",
+        "contextMenus",
+        "tabs"
+      ]
+}

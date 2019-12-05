@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="/assets/js/min/jquery-3.4.1.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jira Task Tracker</title>
+    <script src="/assets/js/min/popup.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/styles/min/general.min.css">
+</head>
+
+<body>
+    <div class="js-first-page hidden">
+        <div id="worker-content">
+            <h1 class="position-header">I'm</h1>
+            <div class="position-select">
+                <div class="position-dev active">Dev. / Tester</div>
+                <label class="switch">
+                    <input type="checkbox" class="js-position-checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <div class="position-test">Any Other
+                </div>
+            </div>
+        </div>
+
+        <div id="team-content">
+            <h1 class="position-header js-displayed-team-name">Working on : </h1>
+            <div class="team-name">
+                <input type="text" class="js-team-name team-name-input" name="teamName" placeholder="Your team's name">
+            </div>
+        </div>
+
+        <div id="sprint-info">
+            <div>How long is your sprints?</div>
+            <div class="sprint-info-date">
+                <div class="sprint-info-date-group">
+                    <input type="radio" name="rb" id="rb1" value="1" />
+                    <label for="rb1">1</label>
+                </div>
+                <div class="sprint-info-date-group">
+                    <input type="radio" name="rb" id="rb2" value="2" />
+                    <label for="rb2">2</label>
+                </div>
+                <div class="sprint-info-date-group">
+                    <input type="radio" name="rb" id="rb3" value="3" />
+                    <label for="rb3">3</label>
+                </div>
+                <div class="sprint-info-date-group">
+                    <input type="radio" name="rb" id="rb4" value="4" />
+                    <label for="rb4">4</label>
+                </div>
+            </div>
+            <div class="sprint-info-date-text">Week(s)</div>
+        </div>
+        <div id="send-info">
+            <div class="send-info-save js-save-info">
+                <button class="btn-slide-line">
+                    <span>Save</span>
+                </button>
+            </div>
+            <div class="send-info-skip js-skip-info">
+                skip >
+            </div>
+            <div class="infoText">Later on, you will be able to change your info via options</div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+<div id="work-content" class="js-work-content hidden">
+    <div id="currentTask" class="hasTask js-hasTask">
+        <div class="currentTaskText js-has-working-task">
+            <div class="currentTaskTitle">You are currently working on</div> 
+            <div class="currentTaskName js-currentTask-name"></div>
+            <div class="currentTaskTime">Since <span class="currentTaskTimeHr js-currentTask-time-hour"></span> <span class="currentTaskTimeMin js-currentTask-time-min"></span> 
+                <div class="currentTaskMission js-currentTaskMission"> 
+                    <img src="/assets/icons/finish.png" title="Finish working on this task">
+                </div>
+            </div>
+        </div>
+        <div class="noCurrentTaskText js-no-working-task hidden">You dont have current task on timer, <b>click rocket</b> to launch one!</div>
+        <div class="currentTaskId">
+
+        </div>
+        <div id="allTasks" class="allTasksWrapper">
+            <div class="previousTasksText js-previousTasksText hidden">Your previous tasks on this sprint:</div>
+            <div class="previousTasks js-previousTasks">
+
+            </div>
+        </div>
+    </div>
+    <div class="noTask js-noTask hidden">
+        <div class="currentTaskText">Looks like you dont have any task right now. <br> Lets add one!
+        </div>
+        <br>
+        <div class="firstTask"> For the add your first task: <strong>right click</strong> on task name, <br> and you
+            will see <strong>"Start working
+                on this task"</strong> option.
+            <img class="firstTask-img" src="/assets/starttask.png">
+        </div>
+    </div>
+
+    <div class="footer js-footer hidden">
+        <div class="resetSprint js-resetSprint">Reset sprint <br> (Remove all tasks)</div>
+        <div class="exportSprint js-exportSprint">Export tasks <br> (Excel csv file)</div>
+        <div class="resetConfirmation hidden">
+            <div class="resetConfirmation-reset js-resetConfirmation">Delete All</div>
+            <div class="resetConfirmation-cancel js-cancelReset">Cancel</div>
+        </div>
+    </div>
+</div>

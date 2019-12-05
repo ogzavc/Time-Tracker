@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/assets/js/min/jquery-3.4.1.min.js"></script>
+    <script src="/assets/js/min/options.min.js"></script>
+    <link rel="stylesheet" type="text/css"  href="assets/styles/min/general.min.css">
+    <title>Jira Task Tracker Options</title>
+</head>
+<body class="options">
+    <div class="tab">
+        <button class="tablinks js-tabLink" >Settings</button>
+        <button class="tablinks js-tabLink" >Personal Inf</button>
+      </div>
+      
+    <div class="tabcontent js-tabContent">
+    <div class="options-text">Day / Dark Mode</div>
+     <div class="darkModeSwitch">
+        <div class="position-day active">
+            <img src="/assets/icons/day.png">
+        </div>
+        <div class="darkModeSwitch-toggle">
+            <label class="switch">
+                <input type="checkbox" class="js-darkMode">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="position-night">
+            <img src="/assets/icons/night.png">
+        </div>
+     </div>
+     <div class="options-text">Export your works</div>
+     <div class="options-export js-export-tasks">
+         <img src="/assets/icons/export.png">
+     </div>
+     <div class="options-text">Clear all tasks</div>
+     <div class="options-delete js-delete-tasks">
+         <img src="/assets/icons/delete.png">
+     </div>
+    </div>
+    <div class="tabcontent js-tabContent">
+        <div id="worker-content">
+            <h1 class="position-header">I'm a</h1>
+            <div class="position-select">
+                <div class="position-dev active">Dev. / Tester</div>
+                <label class="switch">
+                    <input type="checkbox" class="js-position-checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <div class="position-test">Other</div>
+            </div>
+        </div>
+        <div id="team-content">
+            <h1 class="position-header js-displayed-team-name">Working on : </h1>
+            <div class="team-name">
+                <input type="text" class="js-team-name team-name-input" name="teamName" placeholder="Your team's name">
+            </div>
+        </div>
+        <div id="sprint-info">
+            <div>How long is your sprints?</div>
+            <div class="sprint-info-date">
+                <div class="sprint-info-date-group">
+                    <input type="radio" name="rb" id="rb1" value="1" />
+                    <label for="rb1">1</label>
+                </div>
+                <div class="sprint-info-date-group">
+                    <input type="radio" name="rb" id="rb2" value="2" />
+                    <label for="rb2">2</label>
+                </div>
+                <div class="sprint-info-date-group">
+                    <input type="radio" name="rb" id="rb3" value="3" />
+                    <label for="rb3">3</label>
+                </div>
+                <div class="sprint-info-date-group">
+                    <input type="radio" name="rb" id="rb4" value="4" />
+                    <label for="rb4">4</label>
+                </div>
+            </div>
+            <div class="sprint-info-date-text">Week(s)</div>
+        </div>
+        <div id="send-info">
+            <div class="send-info-save js-save-info">
+                <button class="btn-slide-line">
+                    <span>Save</span>
+                </button>
+                <div class="infosSaved">Saved &#x2713;</div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- The Modal -->
+<div id="deleteModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close js-closeDelModal">&times;</span>
+        <h2>Are you sure?</h2>
+      </div>
+      <div class="modal-body">
+        <div class="resetConfirmation">
+            <div class="resetConfirmation-reset js-resetConfirmation">Delete All</div>
+            <div class="resetConfirmation-cancel js-cancelReset">Cancel</div>
+            <div class="tasksDeleted js-tasksDeleted hidden">Deleted &#x2713;</div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+    
+</body>
+</html>
